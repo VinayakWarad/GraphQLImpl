@@ -18,4 +18,10 @@ public class StudentServiceImpl implements StudentService{
     public List<Student> getStudents() {
         return studentrepo.findAll();
     }
+
+    @Override
+    public Student getStudentsByName(String name) {
+        return studentrepo.findByName(name);
+    }
+
 }

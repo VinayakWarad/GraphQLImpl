@@ -1,0 +1,13 @@
+# Represents schema of Student
+type Student{
+      id : ID
+      name : String
+      address : String
+      className : String
+      phoneNum : String
+}
+
+type Query{
+getStudentsList:[Student]
+getStudentsByName(name:String):Student
+}
