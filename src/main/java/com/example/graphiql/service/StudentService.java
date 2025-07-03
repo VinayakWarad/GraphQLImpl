@@ -9,4 +9,6 @@ public interface StudentService {
     public List<Student> getStudents();
 
     Student getStudentsByName(String name);
+
+    Student getStudentById(Integer id,String name);
 }

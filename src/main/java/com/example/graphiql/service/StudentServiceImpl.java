@@ -24,4 +24,14 @@ public class StudentServiceImpl implements StudentService{
         return studentrepo.findByName(name);
     }
 
+    @Override
+    public Student getStudentById(Integer id,String name) {
+       Student s= studentrepo.findById(id).orElseThrow(()->new RuntimeException("STudent does not exists"));
+       s.setName(name);
+       //Below confirms in console that name got updated
+        Student s1=studentrepo.findById(id).orElseThrow(()->new RuntimeException("STudent does not exists"));
+       System.out.println("classname"+s1.getName());
+       return s;
+    }
+
 }

@@ -4,6 +4,7 @@ import com.example.graphiql.model.Student;
 import com.example.graphiql.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +28,10 @@ public class StudentController {
     public Student getStudentsByName(@Argument String name){
         Student sl=studentService.getStudentsByName(name);
         return sl;
+    }
+
+    @MutationMapping
+    public Student updateStudent(@Argument Integer id,@Argument String name){
+       return studentService.getStudentById(id,name);
     }
 }

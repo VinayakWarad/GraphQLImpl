@@ -11,3 +11,6 @@ type Query{
 getStudentsList:[Student]
 getStudentsByName(name:String):Student
 }
+type Mutation{
+updateStudent(id:Int,name:String):Student
+}
