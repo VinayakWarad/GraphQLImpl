@@ -6,11 +6,20 @@ type Student{
       className : String
       phoneNum : String
 }
+input UpdateStudentInputDto {
+    id: Int!
+    name: String
+    address: String
+    className: String
+    phoneNum: String
+}
 
 type Query{
 getStudentsList:[Student]
 getStudentsByName(name:String):Student
 }
+
 type Mutation{
 updateStudent(id:Int,name:String):Student
+updateStudents(input: UpdateStudentInputDto!): Student
 }

@@ -1,32 +1,18 @@
-package com.example.graphiql.model;
+package com.example.graphiql.dto;
 
-import java.time.LocalDateTime;
-import jakarta.persistence.*;
-
-/**
- * Student entity representing a student record.
- */
-@Entity
-public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UpdateStudentInputDto {
     private Integer id;
     private String name;
     private String address;
     private String className;
     private String phoneNum;
 
-    public Student() {
+    public String getClassName() {
+        return className;
     }
 
-
-
-    public Student(String address, String className, Integer id, String name, String phoneNum) {
-        this.address = address;
+    public void setClassName(String className) {
         this.className = className;
-        this.id = id;
-        this.name = name;
-        this.phoneNum = phoneNum;
     }
 
     public String getAddress() {
@@ -35,14 +21,6 @@ public class Student {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getClassName() {
-        return className;
-    }
-
-    public void setClassName(String className) {
-        this.className = className;
     }
 
     public Integer getId() {
@@ -69,5 +47,4 @@ public class Student {
         this.phoneNum = phoneNum;
     }
 
-
-    }
+}

@@ -1,0 +1,9 @@
+GraphQLQueryResolver : Our resolver class(@Component) should implement this class when we perform get operations
+GraphQLMutationResolver : Our resolver class(@Component) should implement this class when we perform update or post
+
+*our class implement both above resolvers if we have controller doing both mutation and query(POST/Get operations)
+* If you are making use of @QueryMapping / @Mutation mapping in resolver class then you don't need to
+implement GraphQLMutationResolver and GraphQLQueryResolver
+
+Note : If you want to make graphql call from MS1 to MS2 then in MS1 you have to make webclient call
+and pass query as argument and in MS2 you should have configured resolver methods along with it.
