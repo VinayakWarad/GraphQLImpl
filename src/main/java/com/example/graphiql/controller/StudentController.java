@@ -39,7 +39,6 @@ public class StudentController {
 
     //Mutate using DTO as input
     @MutationMapping
-//
     public Student updateStudents(@Argument UpdateStudentInputDto input) {
         System.out.println(input.getId());
         Student student = studentRepo.findById(input.getId()).orElseThrow(() -> new RuntimeException("Student not found"));

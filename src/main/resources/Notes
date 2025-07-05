@@ -7,3 +7,30 @@ implement GraphQLMutationResolver and GraphQLQueryResolver
 
 Note : If you want to make graphql call from MS1 to MS2 then in MS1 you have to make webclient call
 and pass query as argument and in MS2 you should have configured resolver methods along with it.
+
+**************************************************************************
+
+private static final String CONTENT_TYPE = "application/graphql";
+              collmgmt:
+  url: "https://bcp-csdev2.c360cs.mipc.css.cgipdc.cginet/api/collmgmtservice/
+
+ StringBuilder contactQuery = new StringBuilder();
+    contactQuery.append("{").append("contactsForAccount(accountId: \"").append(accountId)
+    .append("\", relationshipType: \"").append(relationshipType).append("\") {")
+    .append("contactDetails {").append("contactName {").append(BCPMgmtConstants.FULL_NAME).append("}")
+    .append("}").append("}").append("}");
+
+    var url = String.format("%s%s", collMgmtUrl,BCPMgmtConstants.GRAPHQL);
+    var httpHeaders = new HttpHeaders();
+    httpHeaders.set(HttpHeaders.CONTENT_TYPE, CONTENT_TYPE);
+    log.debug("Request for {}: {}", url, contactQuery);
+
+    try {
+      String response =
+          webClient.post().uri(url).headers(httpHeader -> httpHeader.addAll(httpHeaders))
+              .bodyValue(contactQuery.toString()).retrieve().bodyToMono(String.class).block();
+      //Parse response here
+        }
+   catch (JsonProcessingException e) {
+      log.error("JsonProcessingException:{}", e.getMessage());
+      }
